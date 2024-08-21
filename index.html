@@ -3,9 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Book Manager</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <p>Hello World</p>
+    <header>
+        <h1>Book Manager</h1>
+    </header>
+    
+    <main>
+        <section id="book-list">
+            <h2>Book List</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="book-table-body">
+                    <!-- Books will be loaded here -->
+                </tbody>
+            </table>
+        </section>
+        
+        <section id="book-form">
+            <h2 id="form-title">Add Book</h2>
+            <form id="form">
+                <input type="hidden" id="book-id">
+                <label for="title">Title:</label>
+                <input type="text" id="title" required>
+                <label for="author">Author:</label>
+                <input type="text" id="author" required>
+                <button type="submit">Save Book</button>
+            </form>
+        </section>
+    </main>
+    
+    <script src="script.js"></script>
 </body>
 </html>
