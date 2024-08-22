@@ -1,3 +1,5 @@
+import { endpointGetBooks, endpointPostBook, endpointUpdateBook, endpointDeleteBook } from "./url.js";
+
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('form');
     const bookTableBody = document.getElementById('book-table-body');
@@ -6,15 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const authorInput = document.getElementById('author');
     const formTitle = document.getElementById('form-title');
 
-    const apiUrl = 'http://localhost:3000/book';
-
     // Load books on page load
     function loadBooks() {
-        fetch(apiUrl)
+        fetch(endpointGetBooks)
             .then(response => response.json())
             .then(data => {
                 bookTableBody.innerHTML = '';
-                data.data.forEach(book => {
+                data.forEach(book => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
                         <td>${book.id}</td>
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const title = titleInput.value;
         const author = authorInput.value;
         const method = id ? 'PUT' : 'POST';
-        const url = id ? `${apiUrl}/update/${id}` : apiUrl;
+        const url = id ? endpointUpdateBook.replace(':id', id) : endpointPostBook;
 
         fetch(url, {
             method: method,
@@ -68,7 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Delete book
     window.deleteBook = function(id) {
-        fetch(`${apiUrl}/delete/${id}`, {
+        const url = endpointDeleteBook.replace(':id', id);
+        fetch(url, {
             method: 'DELETE'
         })
             .then(response => response.json())

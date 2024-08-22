@@ -89,28 +89,35 @@
                 </div>
               </div>
             </a>
-            <h2 class="text-4xl font-bold font-heading mb-10">Latest articles</h2>
+            <h2 class="text-4xl font-bold font-heading mb-10">book-list</h2>
             <div class="flex flex-wrap gap-2 mb-10">
-              <a x-ref="tab1" x-on:click.prevent="tab = $refs.tab1.textContent" :class="{ 'border border-purple-700 bg-purple-900 hover:bg-purple-800 focus:ring focus:ring-purple-800 text-white': tab == $refs.tab1.textContent, 'border border-gray-200 bg-white hover:bg-gray-50 focus:ring focus:ring-orange-200': tab != $refs.tab1.textContent }" class="h-10 inline-flex items-center justify-center w-full sm:w-auto text-center py-3 px-4 rounded-full bg-purple-900 border border-purple-700 hover:bg-purple-800 focus:ring focus:ring-purple-800 text-white text-sm font-semibold transition duration-200" href="#">All Articles</a>
-              <a x-ref="tab2" x-on:click.prevent="tab = $refs.tab2.textContent" :class="{ 'border border-purple-700 bg-purple-900 hover:bg-purple-800 focus:ring focus:ring-purple-800 text-white': tab == $refs.tab2.textContent, 'border border-gray-200 bg-white hover:bg-gray-50 focus:ring focus:ring-orange-200': tab != $refs.tab2.textContent }" class="h-10 inline-flex items-center justify-center w-full sm:w-auto text-center py-3 px-5 rounded-full bg-white border border-gray-200 text-sm font-semibold hover:bg-gray-50 focus:ring focus:ring-orange-200 transition duration-200" href="#">Getting Started</a>
-              <a x-ref="tab3" x-on:click.prevent="tab = $refs.tab3.textContent" :class="{ 'border border-purple-700 bg-purple-900 hover:bg-purple-800 focus:ring focus:ring-purple-800 text-white': tab == $refs.tab3.textContent, 'border border-gray-200 bg-white hover:bg-gray-50 focus:ring focus:ring-orange-200': tab != $refs.tab3.textContent }" class="h-10 inline-flex items-center justify-center w-full sm:w-auto text-center py-3 px-5 rounded-full bg-white border border-gray-200 text-sm font-semibold hover:bg-gray-50 focus:ring focus:ring-orange-200 transition duration-200" href="#">Learning Resources</a>
-              <a x-ref="tab4" x-on:click.prevent="tab = $refs.tab4.textContent" :class="{ 'border border-purple-700 bg-purple-900 hover:bg-purple-800 focus:ring focus:ring-purple-800 text-white': tab == $refs.tab4.textContent, 'border border-gray-200 bg-white hover:bg-gray-50 focus:ring focus:ring-orange-200': tab != $refs.tab4.textContent }" class="h-10 inline-flex items-center justify-center w-full sm:w-auto text-center py-3 px-5 rounded-full bg-white border border-gray-200 text-sm font-semibold hover:bg-gray-50 focus:ring focus:ring-orange-200 transition duration-200" href="#">Stories</a>
+              <a x-ref="tab1" x-on:click.prevent="tab = $refs.tab1.textContent" 
+              :class="{ 'border border-purple-700 bg-purple-900 hover:bg-purple-800 focus:ring focus:ring-purple-800 text-white': 
+              tab == $refs.tab1.textContent, 'border border-gray-200 bg-white hover:bg-gray-50 focus:ring focus:ring-orange-200': tab != $refs.tab1.textContent }" 
+              class="h-10 inline-flex items-center justify-center w-full sm:w-auto text-center py-3 px-4 rounded-full bg-purple-900 border border-purple-700 hover:bg-purple-800 focus:ring focus:ring-purple-800 text-white text-sm font-semibold transition duration-200" href="#">All Genre</a>
+              <a x-ref="tab2" x-on:click.prevent="tab = $refs.tab2.textContent" 
+              :class="{ 'border border-purple-700 bg-purple-900 hover:bg-purple-800 focus:ring focus:ring-purple-800 text-white': 
+              tab == $refs.tab2.textContent, 'border border-gray-200 bg-white hover:bg-gray-50 focus:ring focus:ring-orange-200': tab != $refs.tab2.textContent }" 
+              class="h-10 inline-flex items-center justify-center w-full sm:w-auto text-center py-3 px-5 rounded-full bg-white border border-gray-200 text-sm font-semibold hover:bg-gray-50 focus:ring focus:ring-orange-200 transition duration-200" href="#">Historical</a>
+              <a x-ref="tab3" x-on:click.prevent="tab = $refs.tab3.textContent" 
+              :class="{ 'border border-purple-700 bg-purple-900 hover:bg-purple-800 focus:ring focus:ring-purple-800 text-white': 
+              tab == $refs.tab3.textContent, 'border border-gray-200 bg-white hover:bg-gray-50 focus:ring focus:ring-orange-200': tab != $refs.tab3.textContent }" 
+              class="h-10 inline-flex items-center justify-center w-full sm:w-auto text-center py-3 px-5 rounded-full bg-white border border-gray-200 text-sm font-semibold hover:bg-gray-50 focus:ring focus:ring-orange-200 transition duration-200" href="#">Romance</a>
+              <a x-ref="tab4" x-on:click.prevent="tab = $refs.tab4.textContent" 
+              :class="{ 'border border-purple-700 bg-purple-900 hover:bg-purple-800 focus:ring focus:ring-purple-800 text-white': 
+              tab == $refs.tab4.textContent, 'border border-gray-200 bg-white hover:bg-gray-50 focus:ring focus:ring-orange-200': tab != $refs.tab4.textContent }" 
+              class="h-10 inline-flex items-center justify-center w-full sm:w-auto text-center py-3 px-5 rounded-full bg-white border border-gray-200 text-sm font-semibold hover:bg-gray-50 focus:ring focus:ring-orange-200 transition duration-200" href="#">Fiction</a>
+              <a x-ref="tab4" x-on:click.prevent="tab = $refs.tab4.textContent" 
+              :class="{ 'border border-purple-700 bg-purple-900 hover:bg-purple-800 focus:ring focus:ring-purple-800 text-white': 
+              tab == $refs.tab4.textContent, 'border border-gray-200 bg-white hover:bg-gray-50 focus:ring focus:ring-orange-200': tab != $refs.tab4.textContent }" 
+              class="h-10 inline-flex items-center justify-center w-full sm:w-auto text-center py-3 px-5 rounded-full bg-white border border-gray-200 text-sm font-semibold hover:bg-gray-50 focus:ring focus:ring-orange-200 transition duration-200" href="#">Science Fiction</a>
             </div>
             <div class="flex flex-wrap pb-32 -mx-4">
               <div class="w-full md:w-1/2 lg:w-1/3 p-4">
                 <a href="#">
                   <div class="bg-white border border-orange-100 hover:border-orange-500 transition duration-200 rounded-2xl h-full p-3">
                     <div class="relative" style="height: 240px;">
-                      <div class="absolute top-0 left-0 z-10">
-                        <svg class="rounded-tl-2xl" xmlns="http://www.w3.org/2000/svg" width="159" height="156" viewbox="0 0 159 156" fill="none">
-                          <path d="M-30 81.9324V155.361C-30 155.714 -29.7141 156 -29.3615 156H21.62C21.9724 156 22.2585 155.714 22.2585 155.361V96.299C22.2585 57.5087 60.5087 19.2585 99.299 19.2585H158.361C158.714 19.2585 159 18.9724 159 18.62V-32.3615C159 -32.7139 158.714 -33 158.361 -33H84.9324C21.4572 -33 -30 18.4572 -30 81.9324Z" fill="#FFF2D6"></path>
-                        </svg>
-                      </div>
-                      <div class="absolute bottom-0 right-0 z-10">
-                        <svg class="rounded-br-2xl" xmlns="http://www.w3.org/2000/svg" width="150" height="158" viewbox="0 0 150 158" fill="none">
-                          <path d="M189 74.0676V0.638514C189 0.286054 188.714 0 188.361 0H137.38C137.028 0 136.742 0.286054 136.742 0.638514V59.701C136.742 98.4913 98.4914 136.742 59.701 136.742H0.638514C0.286054 136.742 0 137.028 0 137.38V188.361C0 188.714 0.286054 189 0.638514 189H74.0676C137.543 189 189 137.543 189 74.0676Z" fill="#FFF2D6"></path>
-                        </svg>
-                      </div>
+                      
                       <img class="absolute inset-0 w-full h-full object-cover rounded-2xl" src="solstice-assets/images/blog/picture1.png" alt="">
                     </div>
                     <div class="pt-6 pb-3 px-4">
@@ -129,16 +136,7 @@
                 <a href="#">
                   <div class="bg-white border border-orange-100 hover:border-orange-500 transition duration-200 rounded-2xl h-full p-3">
                     <div class="relative" style="height: 240px;">
-                      <div class="absolute top-0 left-0 z-10">
-                        <svg class="rounded-tl-2xl" xmlns="http://www.w3.org/2000/svg" width="159" height="156" viewbox="0 0 159 156" fill="none">
-                          <path d="M-30 81.9324V155.361C-30 155.714 -29.7141 156 -29.3615 156H21.62C21.9724 156 22.2585 155.714 22.2585 155.361V96.299C22.2585 57.5087 60.5087 19.2585 99.299 19.2585H158.361C158.714 19.2585 159 18.9724 159 18.62V-32.3615C159 -32.7139 158.714 -33 158.361 -33H84.9324C21.4572 -33 -30 18.4572 -30 81.9324Z" fill="#530031"></path>
-                        </svg>
-                      </div>
-                      <div class="absolute bottom-0 right-0 z-10">
-                        <svg class="rounded-br-2xl" xmlns="http://www.w3.org/2000/svg" width="150" height="158" viewbox="0 0 150 158" fill="none">
-                          <path d="M189 74.0676V0.638514C189 0.286054 188.714 0 188.361 0H137.38C137.028 0 136.742 0.286054 136.742 0.638514V59.701C136.742 98.4913 98.4914 136.742 59.701 136.742H0.638514C0.286054 136.742 0 137.028 0 137.38V188.361C0 188.714 0.286054 189 0.638514 189H74.0676C137.543 189 189 137.543 189 74.0676Z" fill="#530031"></path>
-                        </svg>
-                      </div>
+                      
                       <img class="absolute inset-0 w-full h-full object-cover rounded-2xl" src="solstice-assets/images/blog/picture2.png" alt="">
                     </div>
                     <div class="pt-6 pb-3 px-4">
@@ -157,16 +155,7 @@
                 <a href="#">
                   <div class="bg-white border border-orange-100 hover:border-orange-500 transition duration-200 rounded-2xl h-full p-3">
                     <div class="relative" style="height: 240px;">
-                      <div class="absolute top-0 left-0 z-10">
-                        <svg class="rounded-tl-2xl" xmlns="http://www.w3.org/2000/svg" width="159" height="156" viewbox="0 0 159 156" fill="none">
-                          <path d="M-30 81.9324V155.361C-30 155.714 -29.7141 156 -29.3615 156H21.62C21.9724 156 22.2585 155.714 22.2585 155.361V96.299C22.2585 57.5087 60.5087 19.2585 99.299 19.2585H158.361C158.714 19.2585 159 18.9724 159 18.62V-32.3615C159 -32.7139 158.714 -33 158.361 -33H84.9324C21.4572 -33 -30 18.4572 -30 81.9324Z" fill="#FF7100"></path>
-                        </svg>
-                      </div>
-                      <div class="absolute bottom-0 right-0 z-10">
-                        <svg class="rounded-br-2xl" xmlns="http://www.w3.org/2000/svg" width="150" height="158" viewbox="0 0 150 158" fill="none">
-                          <path d="M189 74.0676V0.638514C189 0.286054 188.714 0 188.361 0H137.38C137.028 0 136.742 0.286054 136.742 0.638514V59.701C136.742 98.4913 98.4914 136.742 59.701 136.742H0.638514C0.286054 136.742 0 137.028 0 137.38V188.361C0 188.714 0.286054 189 0.638514 189H74.0676C137.543 189 189 137.543 189 74.0676Z" fill="#FF7100"></path>
-                        </svg>
-                      </div>
+                      
                       <img class="absolute inset-0 w-full h-full object-cover rounded-2xl" src="solstice-assets/images/blog/picture3.png" alt="">
                     </div>
                     <div class="pt-6 pb-3 px-4">
@@ -185,16 +174,7 @@
                 <a href="#">
                   <div class="bg-white border border-orange-100 hover:border-orange-500 transition duration-200 rounded-2xl h-full p-3">
                     <div class="relative" style="height: 240px;">
-                      <div class="absolute top-0 left-0 z-10 text-white text-opacity-20">
-                        <svg class="rounded-tl-2xl" xmlns="http://www.w3.org/2000/svg" width="159" height="156" viewbox="0 0 159 156" fill="none">
-                          <path d="M-30 81.9324V155.361C-30 155.714 -29.7141 156 -29.3615 156H21.62C21.9724 156 22.2585 155.714 22.2585 155.361V96.299C22.2585 57.5087 60.5087 19.2585 99.299 19.2585H158.361C158.714 19.2585 159 18.9724 159 18.62V-32.3615C159 -32.7139 158.714 -33 158.361 -33H84.9324C21.4572 -33 -30 18.4572 -30 81.9324Z" fill="currentColor"></path>
-                        </svg>
-                      </div>
-                      <div class="absolute bottom-0 right-0 z-10 text-white text-opacity-20">
-                        <svg class="rounded-br-2xl" xmlns="http://www.w3.org/2000/svg" width="153" height="155" viewbox="0 0 153 155" fill="none">
-                          <path d="M189 74.0676V0.638514C189 0.286054 188.714 0 188.361 0H137.38C137.028 0 136.742 0.286054 136.742 0.638514V59.701C136.742 98.4913 98.4914 136.742 59.701 136.742H0.638514C0.286054 136.742 0 137.028 0 137.38V188.361C0 188.714 0.286054 189 0.638514 189H74.0676C137.543 189 189 137.543 189 74.0676Z" fill="currentColor"></path>
-                        </svg>
-                      </div>
+                      
                       <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-purple-900 w-full h-full rounded-2xl">
                         <div class="flex items-center justify-center gap-4 h-full">
                           <img src="solstice-assets/images/logos/solstice-logo-light.svg" alt="">
@@ -219,16 +199,6 @@
                 <a href="#">
                   <div class="bg-white border border-orange-100 hover:border-orange-500 transition duration-200 rounded-2xl h-full p-3">
                     <div class="relative" style="height: 240px;">
-                      <div class="absolute top-0 left-0 z-10 text-white text-opacity-20">
-                        <svg class="rounded-tl-2xl" xmlns="http://www.w3.org/2000/svg" width="159" height="156" viewbox="0 0 159 156" fill="none">
-                          <path d="M-30 81.9324V155.361C-30 155.714 -29.7141 156 -29.3615 156H21.62C21.9724 156 22.2585 155.714 22.2585 155.361V96.299C22.2585 57.5087 60.5087 19.2585 99.299 19.2585H158.361C158.714 19.2585 159 18.9724 159 18.62V-32.3615C159 -32.7139 158.714 -33 158.361 -33H84.9324C21.4572 -33 -30 18.4572 -30 81.9324Z" fill="currentColor"></path>
-                        </svg>
-                      </div>
-                      <div class="absolute bottom-0 right-0 z-10 text-white text-opacity-20">
-                        <svg class="rounded-br-2xl" xmlns="http://www.w3.org/2000/svg" width="153" height="155" viewbox="0 0 153 155" fill="none">
-                          <path d="M189 74.0676V0.638514C189 0.286054 188.714 0 188.361 0H137.38C137.028 0 136.742 0.286054 136.742 0.638514V59.701C136.742 98.4913 98.4914 136.742 59.701 136.742H0.638514C0.286054 136.742 0 137.028 0 137.38V188.361C0 188.714 0.286054 189 0.638514 189H74.0676C137.543 189 189 137.543 189 74.0676Z" fill="currentColor"></path>
-                        </svg>
-                      </div>
                       <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black w-full h-full rounded-2xl">
                         <div class="flex items-center justify-center gap-4 h-full">
                           <img src="solstice-assets/images/logos/solstice-logo-light.svg" alt="">
@@ -259,16 +229,6 @@
                 <a href="#">
                   <div class="bg-white border border-orange-100 hover:border-orange-500 transition duration-200 rounded-2xl h-full p-3">
                     <div class="relative" style="height: 240px;">
-                      <div class="absolute top-0 left-0 z-10">
-                        <svg class="rounded-tl-2xl" xmlns="http://www.w3.org/2000/svg" width="159" height="156" viewbox="0 0 159 156" fill="none">
-                          <path d="M-30 81.9324V155.361C-30 155.714 -29.7141 156 -29.3615 156H21.62C21.9724 156 22.2585 155.714 22.2585 155.361V96.299C22.2585 57.5087 60.5087 19.2585 99.299 19.2585H158.361C158.714 19.2585 159 18.9724 159 18.62V-32.3615C159 -32.7139 158.714 -33 158.361 -33H84.9324C21.4572 -33 -30 18.4572 -30 81.9324Z" fill="#FFF2D6"></path>
-                        </svg>
-                      </div>
-                      <div class="absolute bottom-0 right-0 z-10">
-                        <svg class="rounded-br-2xl" xmlns="http://www.w3.org/2000/svg" width="150" height="158" viewbox="0 0 150 158" fill="none">
-                          <path d="M189 74.0676V0.638514C189 0.286054 188.714 0 188.361 0H137.38C137.028 0 136.742 0.286054 136.742 0.638514V59.701C136.742 98.4913 98.4914 136.742 59.701 136.742H0.638514C0.286054 136.742 0 137.028 0 137.38V188.361C0 188.714 0.286054 189 0.638514 189H74.0676C137.543 189 189 137.543 189 74.0676Z" fill="#FFF2D6"></path>
-                        </svg>
-                      </div>
                       <img class="absolute inset-0 w-full h-full object-cover rounded-2xl" src="solstice-assets/images/blog/picture4.png" alt="">
                     </div>
                     <div class="pt-6 pb-3 px-4">
