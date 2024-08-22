@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const bookIdInput = document.getElementById('book-id');
     const titleInput = document.getElementById('title');
     const authorInput = document.getElementById('author');
+    const publishedyearInput = document.getElementById('publishedyear');
+    const genreInput = document.getElementById('genre');
     const formTitle = document.getElementById('form-title');
 
     // Load books on page load
@@ -45,6 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const id = bookIdInput.value;
         const title = titleInput.value;
         const author = authorInput.value;
+        const publishedyear = publishedyearInputvalue;
+        const genre = genreInput.value;
         const method = id ? 'PUT' : 'POST';
         const url = id ? endpointUpdateBook.replace(':id', id) : endpointPostBook;
 
@@ -53,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ title, author })
+            body: JSON.stringify({ title, author, publishedyear, genre })
         })
             .then(response => response.json())
             .then(() => {
@@ -66,10 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Edit book
-    window.editBook = function(id, title, author) {
+    window.editBook = function(id, title, author, publishedyear, genre) {
         bookIdInput.value = id;
         titleInput.value = title;
         authorInput.value = author;
+        publishedyearInput.value = publishedyear;
+        genreInput.value = genre;
         formTitle.textContent = 'Update Book';
     };
 
