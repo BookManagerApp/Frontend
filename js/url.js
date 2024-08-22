@@ -8,3 +8,7 @@ export const endpointUpdateBook =
 "http://127.0.0.1:3000/book/update/:id";
 export const endpointDeleteBook =
 "http://127.0.0.1:3000/book/delete/:id";
+export const endpointPostRegister =
+"http://127.0.0.1:3000/register";
+export const endpointPostLogin =
+"http://127.0.0.1:3000/login";
