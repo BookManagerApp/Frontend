@@ -14,12 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
         fetch(endpointGetBooks)
             .then((response) => response.json())
             .then((responseData) => {
-                console.log(responseData); // Lihat apa yang diterima
-
+                console.log(responseData); // Periksa data yang diterima
+    
                 const books = responseData.data; // Ambil array 'data' dari objek respons
-
+    
                 bookTableBody.innerHTML = "";
-
+    
                 books.forEach((book) => {
                     console.log("Book ID:", book.id_book); // Pastikan `id_book` tersedia
                     const row = document.createElement("tr");
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             })
             .catch((error) => console.error("Error:", error));
-    }
+    }    
 
     // Add or update book
     form.addEventListener("submit", function (event) {
