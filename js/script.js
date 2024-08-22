@@ -1,87 +1,43 @@
-import { endpointGetBooks, endpointPostBook, endpointUpdateBook, endpointDeleteBook } from "./url.js";
+import { endpointGetBooks } from "./url.js";
 
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('form');
-    const bookTableBody = document.getElementById('book-table-body');
-    const bookIdInput = document.getElementById('book-id');
-    const titleInput = document.getElementById('title');
-    const authorInput = document.getElementById('author');
-    const formTitle = document.getElementById('form-title');
+    const bookContainer = document.getElementById('book-container');
 
     // Load books on page load
     function loadBooks() {
         fetch(endpointGetBooks)
             .then(response => response.json())
             .then(responseData => {
-                console.log(responseData); // Lihat apa yang diterima
+                console.log(responseData);
     
                 const books = responseData.data; // Ambil array 'data' dari objek respons
     
-                bookTableBody.innerHTML = '';
+                bookContainer.innerHTML = '';
     
                 books.forEach(book => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${book.id}</td>
-                        <td>${book.title}</td>
-                        <td>${book.author}</td>
-                        <td>
-                            <button onclick="editBook('${book.id}', '${book.title}', '${book.author}')">Edit</button>
-                            <button onclick="deleteBook('${book.id}')">Delete</button>
-                        </td>
+                    const bookCard = document.createElement('div');
+                    bookCard.className = 'w-full md:w-1/2 lg:w-1/3 p-4';
+                    bookCard.innerHTML = `
+                        <div class="bg-white border border-orange-100 hover:border-orange-500 transition duration-200 rounded-2xl h-auto p-4">
+                            <div class="pt-4 pb-2 px-4">
+                                <h2 class="font-bold font-heading mb-2">${book.title}</h2>
+                                <p class="text-gray-500 text-sm mb-4">${book.author}</p>
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <p class="text-gray-500 text-xs">Published Year</p>
+                                    <p class="text-gray-500 text-xs">${book.publishedyear}</p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 4 4" fill="none">
+                                        <circle cx="2" cy="2" r="2" fill="#B8B8B8"></circle>
+                                    </svg>
+                                    <div class="py-1 px-2 rounded-md bg-orange-50 border border-orange-100 text-xs font-medium text-orange-500 inline-block">${book.genre}</div>
+                                </div>
+                            </div>
+                        </div>
                     `;
-                    bookTableBody.appendChild(row);
+                    bookContainer.appendChild(bookCard);
                 });
             })
             .catch(error => console.error('Error:', error));
-    }    
+    }
 
-    // Add or update book
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const id = bookIdInput.value;
-        const title = titleInput.value;
-        const author = authorInput.value;
-        const method = id ? 'PUT' : 'POST';
-        const url = id ? endpointUpdateBook.replace(':id', id) : endpointPostBook;
-
-        fetch(url, {
-            method: method,
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ title, author })
-        })
-            .then(response => response.json())
-            .then(() => {
-                loadBooks();
-                form.reset();
-                bookIdInput.value = '';
-                formTitle.textContent = 'Add Book';
-            })
-            .catch(error => console.error('Error:', error));
-    });
-
-    // Edit book
-    window.editBook = function(id, title, author) {
-        bookIdInput.value = id;
-        titleInput.value = title;
-        authorInput.value = author;
-        formTitle.textContent = 'Update Book';
-    };
-
-    // Delete book
-    window.deleteBook = function(id) {
-        const url = endpointDeleteBook.replace(':id', id);
-        fetch(url, {
-            method: 'DELETE'
-        })
-            .then(response => response.json())
-            .then(() => loadBooks())
-            .catch(error => console.error('Error:', error));
-    };
-
-    // Initial load
     loadBooks();
 });
