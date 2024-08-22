@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Load books on page load
     function loadBooks() {
-        fetch(apiUrl)
+        fetch(endpointGetBooks)
             .then(response => response.json())
             .then(data => {
                 console.log(data); // Tambahkan ini untuk melihat format data yang diterima
