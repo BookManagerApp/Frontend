@@ -19,7 +19,7 @@
           <div class="flex items-center justify-between py-6">
             <div class="flex items-center gap-10">
               <a href="#">
-                <img src="solstice-assets/images/logos/solstice-logo-dark.svg" alt="">
+                <img src="images/book-stack.png" alt="" style="height: 3rem; width: auto;">
               </a>
               <ul class="hidden lg:flex items-center gap-8">
               </ul>
@@ -41,7 +41,7 @@
             <nav class="relative z-10 px-9 py-8 h-full overflow-y-auto bg-white flex flex-col justify-between">
               <div class="flex items-center justify-between">
                 <a href="#">
-                  <img src="solstice-assets/images/logos/solstice-logo-dark.svg" alt="">
+                  <img src="images/book-stack.png" alt="" style="height: 3rem; width: auto;">
                 </a>
                 <a x-on:click.prevent="mobileNavOpen = !mobileNavOpen" href="#">
                   <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,7 +51,9 @@
               </div>
               <ul class="flex flex-col gap-12 py-12">
               </ul>
-              <div class="flex flex-col items-center gap-6"><a class="w-full text-center py-3 px-5 rounded-full border border-gray-200 shadow text-sm font-semibold hover:bg-gray-50 focus:ring focus:ring-orange-200 transition duration-200" href="#">Login</a><a class="w-full text-center py-3 px-5 rounded-full bg-orange-500 border border-orange-600 shadow text-sm font-semibold text-white hover:bg-orange-600 focus:ring focus:ring-orange-200 transition duration-200" href="#">Get Started</a></div>
+              <div class="flex flex-col items-center gap-6">
+                <a class="w-full text-center py-3 px-5 rounded-full border border-gray-200 shadow text-sm font-semibold hover:bg-gray-50 focus:ring focus:ring-orange-200 transition duration-200" href="login.html">Login</a>
+                <a class="w-full text-center py-3 px-5 rounded-full bg-orange-500 border border-orange-600 shadow text-sm font-semibold text-white hover:bg-orange-600 focus:ring focus:ring-orange-200 transition duration-200" href="signup.html">Sign Up</a></div>
             </nav>
           </div>
         </div>
@@ -60,48 +62,34 @@
       <section class="overflow-hidden" x-data="{ tab: '' }" x-init="tab = $refs.tab1.textContent">
         <div class="bg-orange-100">
           <div class="container px-4 mx-auto">
-            <h1 class="text-4xl lg:text-6xl font-bold font-heading mb-6 pt-16">Blog</h1>
-            <p class="text-gray-600 text-xl mb-20">Latest articles and releases</p>
+            <h1 class="text-4xl lg:text-6xl font-bold font-heading mb-6 pt-16">Book Manager</h1>
+            <p class="text-gray-600 text-xl mb-20">Explore our collection of books</p>
             <a class="bg-white border border-orange-200 hover:border-orange-500 transition duration-200 py-4 rounded-3xl flex flex-wrap mb-20" href="#">
               <div class="w-full lg:w-1/2 px-4">
                 <div class="relative" style="height: 364px;">
-                  <div class="absolute top-0 left-0 z-10">
-                    <svg class="rounded-tl-3xl" xmlns="http://www.w3.org/2000/svg" width="155" height="154" viewbox="0 0 155 154" fill="none">
-                      <path d="M-34 79.9324V153.361C-34 153.714 -33.7141 154 -33.3615 154H17.62C17.9724 154 18.2585 153.714 18.2585 153.361V94.299C18.2585 55.5087 56.5087 17.2585 95.299 17.2585H154.361C154.714 17.2585 155 16.9724 155 16.62V-34.3615C155 -34.7139 154.714 -35 154.361 -35H80.9324C17.4572 -35 -34 16.4572 -34 79.9324Z" fill="#FF7100"></path>
-                    </svg>
-                  </div>
-                  <div class="absolute bottom-0 right-0 z-10">
-                    <svg class="rounded-br-3xl" xmlns="http://www.w3.org/2000/svg" width="154" height="158" viewbox="0 0 154 158" fill="none">
-                      <path d="M189 74.0676V0.638514C189 0.286054 188.714 0 188.361 0H137.38C137.028 0 136.742 0.286054 136.742 0.638514V59.701C136.742 98.4913 98.4914 136.742 59.701 136.742H0.638514C0.286054 136.742 0 137.028 0 137.38V188.361C0 188.714 0.286054 189 0.638514 189H74.0676C137.543 189 189 137.543 189 74.0676Z" fill="#FF7100"></path>
-                    </svg>
-                  </div>
-                  <img class="absolute inset-0 w-full h-full object-cover rounded-3xl" src="solstice-assets/images/blog/picture-large.png" alt="">
+                  <img class="absolute inset-0 w-full h-full object-cover rounded-3xl" src="images/picture-large.png" alt="">
                 </div>
               </div>
               <div class="w-full lg:w-1/2 px-4">
                 <div class="flex flex-col justify-center items-start h-full py-8">
-                  <h2 class="text-2xl lg:text-3xl font-bold font-heading mb-4 max-w-sm">How to Learn Anything Faster and Master It</h2>
-                  <p class="text-gray-600 mb-10">Read on to find out what the technique is, what it’s used for, and how you can apply it to your studies here are some tips on ...</p>
+                  <h2 class="text-2xl lg:text-3xl font-bold font-heading mb-4 max-w-sm">Read....??? Sure!</h2>
+                  <p class="text-gray-600 mb-10">Read on to find out what the technique is, what it’s used for, and how we can apply it to our studies.</p>
                 </div>
               </div>
             </a>
             <h2 class="text-4xl font-bold font-heading mb-10">book-list</h2>
+            <!-- tab filter genre -->
             <div class="flex flex-wrap gap-2 mb-10">
-              <a x-ref="tab1" x-on:click.prevent="tab = $refs.tab1.textContent" :class="{ 'border border-purple-700 bg-purple-900 hover:bg-purple-800 focus:ring focus:ring-purple-800 text-white': 
-              tab == $refs.tab1.textContent, 'border border-gray-200 bg-white hover:bg-gray-50 focus:ring focus:ring-orange-200': tab != $refs.tab1.textContent }" 
-              class="h-10 inline-flex items-center justify-center w-full sm:w-auto text-center py-3 px-4 rounded-full bg-purple-900 border border-purple-700 hover:bg-purple-800 focus:ring focus:ring-purple-800 text-white text-sm font-semibold transition duration-200" href="#">All Genre</a>
-              <a x-ref="tab2" x-on:click.prevent="tab = $refs.tab2.textContent" :class="{ 'border border-purple-700 bg-purple-900 hover:bg-purple-800 focus:ring focus:ring-purple-800 text-white': 
-              tab == $refs.tab2.textContent, 'border border-gray-200 bg-white hover:bg-gray-50 focus:ring focus:ring-orange-200': tab != $refs.tab2.textContent }" 
-              class="h-10 inline-flex items-center justify-center w-full sm:w-auto text-center py-3 px-5 rounded-full bg-white border border-gray-200 text-sm font-semibold hover:bg-gray-50 focus:ring focus:ring-orange-200 transition duration-200" href="#">Historical</a>
-              <a x-ref="tab3" x-on:click.prevent="tab = $refs.tab3.textContent" :class="{ 'border border-purple-700 bg-purple-900 hover:bg-purple-800 focus:ring focus:ring-purple-800 text-white': 
-              tab == $refs.tab3.textContent, 'border border-gray-200 bg-white hover:bg-gray-50 focus:ring focus:ring-orange-200': tab != $refs.tab3.textContent }" 
-              class="h-10 inline-flex items-center justify-center w-full sm:w-auto text-center py-3 px-5 rounded-full bg-white border border-gray-200 text-sm font-semibold hover:bg-gray-50 focus:ring focus:ring-orange-200 transition duration-200" href="#">Romance</a>
-              <a x-ref="tab4" x-on:click.prevent="tab = $refs.tab4.textContent" :class="{ 'border border-purple-700 bg-purple-900 hover:bg-purple-800 focus:ring focus:ring-purple-800 text-white': 
-              tab == $refs.tab4.textContent, 'border border-gray-200 bg-white hover:bg-gray-50 focus:ring focus:ring-orange-200': tab != $refs.tab4.textContent }" 
-              class="h-10 inline-flex items-center justify-center w-full sm:w-auto text-center py-3 px-5 rounded-full bg-white border border-gray-200 text-sm font-semibold hover:bg-gray-50 focus:ring focus:ring-orange-200 transition duration-200" href="#">Fiction</a>
-              <a x-ref="tab4" x-on:click.prevent="tab = $refs.tab4.textContent" :class="{ 'border border-purple-700 bg-purple-900 hover:bg-purple-800 focus:ring focus:ring-purple-800 text-white': 
-              tab == $refs.tab4.textContent, 'border border-gray-200 bg-white hover:bg-gray-50 focus:ring focus:ring-orange-200': tab != $refs.tab4.textContent }" 
-              class="h-10 inline-flex items-center justify-center w-full sm:w-auto text-center py-3 px-5 rounded-full bg-white border border-gray-200 text-sm font-semibold hover:bg-gray-50 focus:ring focus:ring-orange-200 transition duration-200" href="#">Science Fiction</a>
+              <a id="tab-all" x-ref="tab1" x-on:click.prevent="tab = $refs.tab1.textContent" :class="{ 'border border-purple-700 bg-purple-900 hover:bg-purple-800 focus:ring focus:ring-purple-800 text-white': 
+              tab == $refs.tab1.textContent, 'border border-gray-200 bg-white hover:bg-gray-50 focus:ring focus:ring-orange-200': tab != $refs.tab1.textContent }" class="h-10 inline-flex items-center justify-center w-full sm:w-auto text-center py-3 px-4 rounded-full bg-purple-900 border border-purple-700 hover:bg-purple-800 focus:ring focus:ring-purple-800 text-white text-sm font-semibold transition duration-200" href="#">All Genre</a>
+              <a id="tab-historical" x-ref="tab2" x-on:click.prevent="tab = $refs.tab2.textContent" :class="{ 'border border-purple-700 bg-purple-900 hover:bg-purple-800 focus:ring focus:ring-purple-800 text-white': 
+              tab == $refs.tab2.textContent, 'border border-gray-200 bg-white hover:bg-gray-50 focus:ring focus:ring-orange-200': tab != $refs.tab2.textContent }" class="h-10 inline-flex items-center justify-center w-full sm:w-auto text-center py-3 px-5 rounded-full bg-white border border-gray-200 text-sm font-semibold hover:bg-gray-50 focus:ring focus:ring-orange-200 transition duration-200" href="#">Historical</a>
+              <a id="tab-romance" x-ref="tab3" x-on:click.prevent="tab = $refs.tab3.textContent" :class="{ 'border border-purple-700 bg-purple-900 hover:bg-purple-800 focus:ring focus:ring-purple-800 text-white': 
+              tab == $refs.tab3.textContent, 'border border-gray-200 bg-white hover:bg-gray-50 focus:ring focus:ring-orange-200': tab != $refs.tab3.textContent }" class="h-10 inline-flex items-center justify-center w-full sm:w-auto text-center py-3 px-5 rounded-full bg-white border border-gray-200 text-sm font-semibold hover:bg-gray-50 focus:ring focus:ring-orange-200 transition duration-200" href="#">Romance</a>
+              <a id="tab-fiction" x-ref="tab4" x-on:click.prevent="tab = $refs.tab4.textContent" :class="{ 'border border-purple-700 bg-purple-900 hover:bg-purple-800 focus:ring focus:ring-purple-800 text-white': 
+              tab == $refs.tab4.textContent, 'border border-gray-200 bg-white hover:bg-gray-50 focus:ring focus:ring-orange-200': tab != $refs.tab4.textContent }" class="h-10 inline-flex items-center justify-center w-full sm:w-auto text-center py-3 px-5 rounded-full bg-white border border-gray-200 text-sm font-semibold hover:bg-gray-50 focus:ring focus:ring-orange-200 transition duration-200" href="#">Fiction</a>
+              <a id="tab-scifi" x-ref="tab5" x-on:click.prevent="tab = $refs.tab5.textContent" :class="{ 'border border-purple-700 bg-purple-900 hover:bg-purple-800 focus:ring focus:ring-purple-800 text-white': 
+              tab == $refs.tab5.textContent, 'border border-gray-200 bg-white hover:bg-gray-50 focus:ring focus:ring-orange-200': tab != $refs.tab5.textContent }" class="h-10 inline-flex items-center justify-center w-full sm:w-auto text-center py-3 px-5 rounded-full bg-white border border-gray-200 text-sm font-semibold hover:bg-gray-50 focus:ring focus:ring-orange-200 transition duration-200" href="#">Science Fiction</a>              
             </div>
             <div id="book-container" class="flex flex-wrap pb-32 -mx-4">
               <!-- Book list -->        
@@ -111,19 +99,16 @@
         </div>
       </section>
            <!-- Footer -->
-      <div class="pt-24 pb-12 border-b border-gray-100">
-        <div class="container mx-auto px-4">
-          <div class="flex items-center justify-between flex-wrap gap-8">
-            <a href="#">
-              <img src="solstice-assets/images/logos/solstice-logo-dark.svg" alt="">
-            </a>
-            <div class="flex items-center gap-6 flex-wrap">
+           <div class="pt-24 pb-12 border-b border-gray-100">
+            <div class="container mx-auto px-4">
+              <div class="flex items-center justify-between flex-wrap gap-8">
+                <a href="#" class="flex items-center gap-4">
+                  <img src="images/book-stack.png" alt="" style="height: 3rem; width: auto;">
+                  <span class="text-xl font-bold">BOOK MANAGER</span>
+                </a>
+              </div>
             </div>
-          </div>
-        </div>
-      <div class="py-12">
-      </div></div>
-    </div>
+          </div>              
     <script type="module" src="js/script.js"></script>
 </body>
 </html>

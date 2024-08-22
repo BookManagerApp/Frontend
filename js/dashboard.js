@@ -1,4 +1,4 @@
-import { endpointGetBooks, endpointPostBook, endpointUpdateBook, endpointDeleteBook } from "./url.js";
+import { endpointGetBooks, endpointGetGenres, endpointPostBook, endpointUpdateBook, endpointDeleteBook } from "./url.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("form");
@@ -14,14 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
         fetch(endpointGetBooks)
             .then((response) => response.json())
             .then((responseData) => {
-                console.log(responseData); // Periksa data yang diterima
-    
-                const books = responseData.data; // Ambil array 'data' dari objek respons
-    
+                const books = responseData.data;
                 bookTableBody.innerHTML = "";
-    
+
                 books.forEach((book) => {
-                    // console.log("Book ID:", book.id_book); // Pastikan `id_book` tersedia
                     const row = document.createElement("tr");
                     row.innerHTML = `
                         <td>${book.id_book}</td> 
@@ -38,34 +34,40 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             })
             .catch((error) => console.error("Error:", error));
-    }    
+    }
+
+    function loadGenres() {
+        fetch(endpointGetGenres)
+            .then((response) => response.json())
+            .then((responseData) => {
+                const genres = responseData.data;
+                genreInput.innerHTML = genres.map(genre => `<option value="${genre}">${genre}</option>`).join('');
+            })
+            .catch((error) => console.error("Error:", error));
+    }
 
     // Add or update book
     form.addEventListener("submit", function (event) {
         event.preventDefault();
 
         const id = parseInt(bookIdInput.value.trim(), 10);
-        const title = titleInput.value.trim(); // Menghapus spasi di awal dan akhir
+        const title = titleInput.value.trim();
         const author = authorInput.value.trim();
-        const publishedyear = parseInt(publishedyearInput.value.trim(), 10); // Convert to integer
+        const publishedyear = parseInt(publishedyearInput.value.trim(), 10);
         const genre = genreInput.value.trim();
         const method = id ? "PUT" : "POST";
         const url = id ? endpointUpdateBook.replace(":id", id) : endpointPostBook;
-
-        // Print data to verify
-        console.log({ id, title, author, publishedyear, genre });
 
         fetch(url, {
             method: method,
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ id_book: id, title, author, publishedyear, genre }), // Ensure correct key
+            body: JSON.stringify({ id_book: id, title, author, publishedyear, genre }),
         })
             .then((response) => response.json())
             .then((responseData) => {
-                console.log("Response Data:", responseData); // Lihat apa yang diterima
-                loadBooks(); // Reload books after adding or updating
+                loadBooks();
                 form.reset();
                 bookIdInput.value = "";
                 formTitle.textContent = "Add Book";
@@ -88,10 +90,12 @@ document.addEventListener("DOMContentLoaded", () => {
         })
             .then((response) => response.json())
             .then(() => {
-                loadBooks(); // Reload books after deleting
+                loadBooks();
             })
             .catch((error) => console.error("Error:", error));
     };
 
+    // Load initial data
     loadBooks();
+    loadGenres();
 });

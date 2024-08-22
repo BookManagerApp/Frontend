@@ -1,20 +1,48 @@
-import { endpointGetBooks } from "./url.js";
+import { endpointGetBooks, endpointGetGenres } from "./url.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     const bookContainer = document.getElementById('book-container');
+    const genreTabs = {
+        'All Genre': document.getElementById('tab-all'),
+        'Historical': document.getElementById('tab-historical'),
+        'Romance': document.getElementById('tab-romance'),
+        'Fiction': document.getElementById('tab-fiction'),
+        'Science Fiction': document.getElementById('tab-scifi')
+    };
 
-    // Load books on page load
-    function loadBooks() {
+    let selectedGenre = 'All Genre'; // Default genre
+
+    function loadGenres() {
+        fetch(endpointGetGenres)
+            .then(response => response.json())
+            .then(responseData => {
+                const genres = responseData.data;
+                // Add 'All Genre' option dynamically
+                const allGenresOption = document.createElement('option');
+                allGenresOption.value = 'All Genre';
+                allGenresOption.textContent = 'All Genre';
+                genreInput.appendChild(allGenresOption);
+                genres.forEach(genre => {
+                    const option = document.createElement('option');
+                    option.value = genre;
+                    option.textContent = genre;
+                    genreInput.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    function loadBooks(genre = 'All Genre') {
         fetch(endpointGetBooks)
             .then(response => response.json())
             .then(responseData => {
-                console.log(responseData);
-    
-                const books = responseData.data; // Ambil array 'data' dari objek respons
-    
+                const books = responseData.data;
+
                 bookContainer.innerHTML = '';
-    
-                books.forEach(book => {
+
+                const filteredBooks = genre === 'All Genre' ? books : books.filter(book => book.genre === genre);
+
+                filteredBooks.forEach(book => {
                     const bookCard = document.createElement('div');
                     bookCard.className = 'w-full md:w-1/2 lg:w-1/3 p-4';
                     bookCard.innerHTML = `
@@ -39,5 +67,14 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(error => console.error('Error:', error));
     }
 
-    loadBooks();
+    // Event listeners for genre tabs
+    Object.keys(genreTabs).forEach(genre => {
+        genreTabs[genre].addEventListener('click', () => {
+            selectedGenre = genre;
+            loadBooks(selectedGenre);
+        });
+    });
+
+    loadGenres(); // Panggil fungsi untuk memuat genre
+    loadBooks(); // Panggil fungsi untuk memuat buku
 });

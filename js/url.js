@@ -12,3 +12,5 @@ export const endpointPostRegister =
 "http://127.0.0.1:3000/register";
 export const endpointPostLogin =
 "http://127.0.0.1:3000/login";
+export const endpointGetGenres =
+"http://127.0.0.1:3000/genres";
