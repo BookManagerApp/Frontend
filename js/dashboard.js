@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 bookTableBody.innerHTML = "";
     
                 books.forEach((book) => {
-                    console.log("Book ID:", book.id_book); // Pastikan `id_book` tersedia
+                    // console.log("Book ID:", book.id_book); // Pastikan `id_book` tersedia
                     const row = document.createElement("tr");
                     row.innerHTML = `
                         <td>${book.id_book}</td> 
