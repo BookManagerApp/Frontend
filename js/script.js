@@ -10,11 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Load books on page load
     function loadBooks() {
-        fetch(endpointGetBooks)
+        fetch(apiUrl)
             .then(response => response.json())
             .then(data => {
+                console.log(data); // Tambahkan ini untuk melihat format data yang diterima
                 bookTableBody.innerHTML = '';
-                data.forEach(book => {
+                data.forEach(book => { // Ubah 'data.data.forEach' menjadi 'data.forEach' jika 'data' adalah array
                     const row = document.createElement('tr');
                     row.innerHTML = `
                         <td>${book.id}</td>
@@ -29,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             })
             .catch(error => console.error('Error:', error));
-    }
+    }    
 
     // Add or update book
     form.addEventListener('submit', function(event) {
