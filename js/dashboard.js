@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        const id = bookIdInput.value;
+        const id = parseInt(bookIdInput.value.trim(), 10);
         const title = titleInput.value.trim(); // Menghapus spasi di awal dan akhir
         const author = authorInput.value.trim();
         const publishedyear = parseInt(publishedyearInput.value.trim(), 10); // Convert to integer
