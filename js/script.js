@@ -12,10 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function loadBooks() {
         fetch(endpointGetBooks)
             .then(response => response.json())
-            .then(data => {
-                console.log(data); // Tambahkan ini untuk melihat format data yang diterima
+            .then(responseData => {
+                console.log(responseData); // Lihat apa yang diterima
+    
+                const books = responseData.data; // Ambil array 'data' dari objek respons
+    
                 bookTableBody.innerHTML = '';
-                data.forEach(book => { // Ubah 'data.data.forEach' menjadi 'data.forEach' jika 'data' adalah array
+    
+                books.forEach(book => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
                         <td>${book.id}</td>
