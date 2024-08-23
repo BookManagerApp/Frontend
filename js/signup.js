@@ -4,17 +4,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector("form");
     const emailInput = document.getElementById("textInput1");
     const passwordInput = document.getElementById("textInput2");
+    const roleInput = document.getElementById("roleInput"); 
     
     // Tangani pengiriman form
     form.addEventListener("submit", async (event) => {
         event.preventDefault(); 
 
-        const email = emailInput.value.trim();
-        const password = passwordInput.value.trim();
+        const email = emailInput.value;
+        const password = passwordInput.value;
+        const role = roleInput.value; 
 
-        // Validasi input
-        if (!email || !password) {
-            alert("Please fill in both fields.");
+        if (!email || !password || !role) {
+            alert("Please fill in all fields.");
             return;
         }
 
@@ -26,7 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 },
                 body: JSON.stringify({
                     email: email,
-                    password: password
+                    password: password,
+                    role: role
                 })
             });
 
