@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     form.addEventListener("submit", function (event) {
         event.preventDefault();
-
+    
         const id = parseInt(bookIdInput.value.trim(), 10);
         const title = titleInput.value.trim();
         const author = authorInput.value.trim();
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const genre = genreInput.value.trim();
         const method = id ? "PUT" : "POST";
         const url = id ? endpointProtectedUpdateBook.replace(":id", id) : endpointProtectedPostBook;
-
+    
         fetchWithAuth(url, {
             method: method,
             body: JSON.stringify({
@@ -116,34 +116,46 @@ document.addEventListener("DOMContentLoaded", () => {
                 genre,
             }),
         })
-        .then((response) => response.json())
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error("Failed to process request");
+            }
+        })
         .then((responseData) => {
             loadBooks();
             closeModalFn();
+            alert(id ? "Book updated successfully!" : "Book added successfully!");
         })
-        .catch((error) => console.error("Error:", error));
+        .catch((error) => {
+            console.error("Error:", error);
+            alert("Failed to add or update book. Please try again.");
+        });
     });
-
-    window.editBook = function (id, title, author, publishedyear, genre) {
-        bookIdInput.value = id;
-        titleInput.value = title;
-        authorInput.value = author;
-        publishedyearInput.value = publishedyear;
-        genreInput.value = genre;
-        formTitle.textContent = "Edit Book";
-        openModal();
-    };
+    
 
     window.deleteBook = function (id) {
         fetchWithAuth(endpointProtectedDeleteBook.replace(":id", id), {
             method: "DELETE",
         })
-        .then((response) => response.json())
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error("Failed to delete book");
+            }
+        })
         .then(() => {
             loadBooks();
+            alert("Book deleted successfully!");
         })
-        .catch((error) => console.error("Error:", error));
+        .catch((error) => {
+            console.error("Error:", error);
+            alert("Failed to delete book. Please try again.");
+        });
     };
+    
 
     loadBooks();
     loadGenres();
