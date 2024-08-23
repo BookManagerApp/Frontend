@@ -1,65 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book Manager</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
     <!-- Favicon -->
     <link href="favicon.ico" rel="icon" />
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class="header-container">
-            <button id="logout-btn">Logout</button>
-            <h1>Book Manager</h1>
-        </div>
+      <div class="header-container">
+        <button id="logout-btn">Logout</button>
+        <h1>Book Manager</h1>
+      </div>
     </header>
 
     <main>
-        <section id="book-list">
-            <h2>Book List</h2>
-            <button id="add-book-btn">Add Book</button>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>Published Year</th>
-                        <th>Genre</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody id="book-table-body">
-                    <!-- Books -->
-                </tbody>
-            </table>
-        </section>  
-
-        <!-- Modal untuk form Add/Edit -->
-        <div id="modal" class="modal hidden">
-            <div class="modal-content">
-                <span id="close-modal" class="close">&times;</span>
-                <h2 id="form-title">Add Book</h2>
-                <form id="form">
-                    <input type="hidden" id="book-id">
-                    <label for="title">Title:</label>
-                    <input type="text" id="title" required>
-                    <label for="author">Author:</label>
-                    <input type="text" id="author" required>
-                    <label for="publishedyear">Published Year:</label>
-                    <input type="text" id="publishedyear" required>
-                    <label for="genre">Genre:</label>
-                    <select id="genre" required>
-                        <!-- Options -->
-                    </select>
-                    <button type="submit">Save Book</button>
-                </form>
-            </div>
+      <section id="book-list">
+        <div class="header">
+          <h2>Book List</h2>
+          <button id="add-book-btn">Add Book</button>
         </div>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Published Year</th>
+              <th>Genre</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="book-table-body">
+            <!-- Books -->
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Modal untuk form Add/Edit -->
+      <div id="modal" class="modal hidden">
+        <div class="modal-content">
+          <span id="close-modal" class="close">&times;</span>
+          <h2 id="form-title">Add Book</h2>
+          <form id="form">
+            <input type="hidden" id="book-id" />
+            <label for="title">Title:</label>
+            <input type="text" id="title" required />
+            <label for="author">Author:</label>
+            <input type="text" id="author" required />
+            <label for="publishedyear">Published Year:</label>
+            <input type="text" id="publishedyear" required />
+            <label for="genre">Genre:</label>
+            <select id="genre" required>
+              <!-- Options -->
+            </select>
+            <button type="submit">Save Book</button>
+          </form>
+        </div>
+      </div>
     </main>
-    
+
     <script type="module" src="js/dashboard.js"></script>
-</body>
+  </body>
 </html>
