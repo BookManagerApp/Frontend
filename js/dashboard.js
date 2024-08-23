@@ -1,4 +1,4 @@
-import {endpointGetBooks, endpointGetGenres, endpointPostBook, endpointUpdateBook,endpointDeleteBook} from "./url.js";
+import { endpointGetBooks, endpointGetGenres, endpointPostBook, endpointUpdateBook, endpointDeleteBook } from "./url.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form");
@@ -9,6 +9,34 @@ document.addEventListener("DOMContentLoaded", () => {
   const publishedyearInput = document.getElementById("publishedyear");
   const genreInput = document.getElementById("genre");
   const formTitle = document.getElementById("form-title");
+  const modal = document.getElementById("modal");
+  const closeModal = document.getElementById("close-modal");
+  const addBookBtn = document.getElementById("add-book-btn");
+  const logoutBtn = document.getElementById("logout-btn"); // Tambahkan ini ke dalam scope DOMContentLoaded
+
+  // Fungsi untuk membuka modal
+  function openModal() {
+    modal.classList.remove("hidden");
+  }
+
+  // Fungsi untuk menutup modal
+  function closeModalFn() {
+    modal.classList.add("hidden");
+    form.reset();
+    formTitle.textContent = "Add Book";
+    bookIdInput.value = "";
+  }
+
+  addBookBtn.addEventListener("click", openModal);
+  closeModal.addEventListener("click", closeModalFn);
+
+  // Fungsi untuk logout
+  logoutBtn.addEventListener("click", function () {
+    alert("You have logged out.");
+    localStorage.removeItem("userSession");
+    sessionStorage.removeItem("userSession");
+    window.location.href = "index.html";
+  });
 
   function loadBooks() {
     fetch(endpointGetBooks)
@@ -20,16 +48,16 @@ document.addEventListener("DOMContentLoaded", () => {
         books.forEach((book) => {
           const row = document.createElement("tr");
           row.innerHTML = `
-                        <td>${book.id_book}</td> 
-                        <td>${book.title}</td>
-                        <td>${book.author}</td>
-                        <td>${book.publishedyear}</td>
-                        <td>${book.genre}</td>
-                        <td>
-                            <button class="btn-edit" onclick="editBook('${book.id_book}', '${book.title}', '${book.author}', '${book.publishedyear}', '${book.genre}')">Edit</button>
-                            <button class="btn-delete" onclick="deleteBook('${book.id_book}')">Delete</button>
-                        </td>
-                    `;
+            <td>${book.id_book}</td>
+            <td>${book.title}</td>
+            <td>${book.author}</td>
+            <td>${book.publishedyear}</td>
+            <td>${book.genre}</td>
+            <td>
+              <button class="btn-edit" onclick="editBook('${book.id_book}', '${book.title}', '${book.author}', '${book.publishedyear}', '${book.genre}')">Edit</button>
+              <button class="btn-delete" onclick="deleteBook('${book.id_book}')">Delete</button>
+            </td>
+          `;
           bookTableBody.appendChild(row);
         });
       })
@@ -48,7 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch((error) => console.error("Error:", error));
   }
 
-  // Add or update book
   form.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -76,9 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((response) => response.json())
       .then((responseData) => {
         loadBooks();
-        form.reset();
-        bookIdInput.value = "";
-        formTitle.textContent = "Add Book";
+        closeModalFn();
       })
       .catch((error) => console.error("Error:", error));
   });
@@ -90,6 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     publishedyearInput.value = publishedyear;
     genreInput.value = genre;
     formTitle.textContent = "Edit Book";
+    openModal();
   };
 
   window.deleteBook = function (id) {
@@ -103,17 +129,6 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch((error) => console.error("Error:", error));
   };
 
-
   loadBooks();
   loadGenres();
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const logoutBtn = document.getElementById("logout-btn");
-
-  logoutBtn.addEventListener("click", function () {
-    alert("You have logged out.");
-    window.location.href = "index.html";
-  });
-
 });
