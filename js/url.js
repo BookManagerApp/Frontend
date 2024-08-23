@@ -4,6 +4,8 @@ export const endpointPostBook = "http://127.0.0.1:3000/book/post";
 export const endpointUpdateBook = "http://127.0.0.1:3000/book/update/:id";
 export const endpointDeleteBook = "http://127.0.0.1:3000/book/delete/:id";
 export const endpointGetGenres = "http://127.0.0.1:3000/genres";
+// // search
+// export const endpointGetSearch = "http://127.0.0.1:3000//search";
 
 // Endpoint Registrasi dan Login
 export const endpointPostRegister = "http://127.0.0.1:3000/register";
