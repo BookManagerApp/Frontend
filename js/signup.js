@@ -9,9 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", async (event) => {
         event.preventDefault(); 
 
-        const email = emailInput.value;
-        const password = passwordInput.value;
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
 
+        // Validasi input
         if (!email || !password) {
             alert("Please fill in both fields.");
             return;
