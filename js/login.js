@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector("form");
     const emailInput = document.getElementById("textInput1");
     const passwordInput = document.getElementById("textInput2");
-    
+
     form.addEventListener("submit", async (event) => {
         event.preventDefault(); // Mencegah pengiriman form default
 
