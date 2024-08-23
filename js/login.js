@@ -32,7 +32,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 const data = await response.json();
                 if (data.token) {
                     localStorage.setItem("authToken", data.token);
-                    window.location.href = "dashboard.html";
+
+                    // Menyimpan role pengguna dari response
+                    const role = data.role;
+                    
+                    // Mengalihkan pengguna berdasarkan role
+                    if (role === "admin") {
+                        window.location.href = "dashboard.html";
+                    } else {
+                        window.location.href = "index.html";
+                    }
                 } else {
                     alert("Login failed: No token received");
                 }
