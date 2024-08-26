@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => response.json())
             .then(responseData => {
                 const genres = responseData.data;
-                // Add 'All Genre' option dynamically
                 const allGenresOption = document.createElement('option');
                 allGenresOption.value = 'All Genre';
                 allGenresOption.textContent = 'All Genre';
